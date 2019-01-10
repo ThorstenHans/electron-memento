@@ -1,0 +1,48 @@
+{
+  "name": "electron-memento",
+  "version": "0.0.1",
+  "description": "Simple module to track position and dimension of an electron window accross an application lifecycle",
+  "repository": "thorstenhans/electron-memento",
+  "author": {
+    "name": "Thorsten Hans",
+    "email": "thorsten.hans@gmail.com",
+    "url": "thorsten-hans.com"
+  },
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "npx tsc"
+  },
+  "license": "MIT",
+  "keywords": [
+    "electron",
+    "memento",
+    "ux",
+    "position",
+    "dimension",
+    "window management",
+    "window",
+    "remember",
+    "browserwindow",
+    "persistent",
+    "persist",
+    "height",
+    "size",
+    "width",
+    "xy",
+    "save",
+    "load",
+    "read",
+    "write",
+    "conf",
+    "config"
+  ],
+  "dependencies": {
+    "electron": "^4.0.1",
+    "electron-store": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/electron-store": "^1.3.0",
+    "typescript": "^3.2.2"
+  }
+}
