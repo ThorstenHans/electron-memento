@@ -14,7 +14,7 @@ For [Electron](https://electronjs.org/) applications you can specify the size an
 
 ## Support me
 
-[![Become a Patron!](https://c5.patreon.com/external/logo/become_a_patron_button@2x.png)](https://www.patreon.com/bePatron?u=16380186)
+[![Become a Patron!](https://c5.patreon.com/external/logo/become_a_patron_button.png)](https://www.patreon.com/bePatron?u=16380186)
 
 ## Install
 
