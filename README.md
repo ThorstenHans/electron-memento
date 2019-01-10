@@ -59,28 +59,36 @@ function createWindow() {
 
 ### read
 
-`read(defaultDimension?: { width: number, height: number }, defaultPosition?: { x: number, y: number }): Rectangle`
-Will read the dimension and position from the configuration file. If no configuration exists, either *internal defaults* or default values provided by the caller will be returned.
+The `read` method will read the dimension and position from the configuration file. If no configuration exists, either *internal defaults* or default values provided by the caller will be returned.
 
+`read(defaultDimension?: { width: number, height: number }, defaultPosition?: { x: number, y: number }): Rectangle`
 Type: `Rectangle`
 
 #### Internal Defaults
 If you don't specify default values, the window will be `centered` and the dimension will be set to `1000x700 pixels`
 
+
 ### writePosition
 
+You can instruct `electron-memento` explicitly to store the position of the current window by calling the `writePosition` method. It will store the position of `mainApplicationWindow` (`Electron.BrowserWindow`).
+
 `writePosition(mainApplicationWindow: BrowserWindow): void`
-Will store the position of `mainApplicationWindow` (`Electron.BrowserWindow`).
+
 
 ### writeDimension
 
+You can instruct `electron-memento` explicitly to store the dimension of the current window by calling the `writeDimension` method. It will store the dimension of `mainApplicationWindow` (`Electron.BrowserWindow`).
+
 `writeDimension(mainApplicationWindow: BrowserWindow): void`
-Will store the dimension of `mainApplicationWindow` (`Electron.BrowserWindow`).
+
 
 ### infect
-`infect(mainApplicationWindow: BrowserWindow): void`
+
 The `infect` method will register `writePosition` and `writeDimension` to the corresponding events of 'mainApplicationWindow' (`move` and `resize`). Once infected, `electron-memento` will always be invoked to store both,
 `dimension` and `position` of `mainApplicationWindow`. Both `listeners` are unregistered using **explicit** de-registration in `mainApplicationWindow.on('close')`.
+
+`infect(mainApplicationWindow: BrowserWindow): void`
+
 
 ## Credits
 
@@ -89,5 +97,7 @@ The project has been built using [electron-store](https://github.com/sindresorhu
 ## Other libraries
 
 * [ngx-electron](https://github.com/ThorstenHans/ngx-electron)
+
+## Copyright
 
 &copy; [Thorsten Hans](https://thorsten-hans.com)
