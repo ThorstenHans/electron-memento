@@ -1,6 +1,6 @@
 {
   "name": "electron-memento",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Simple module to track position and dimension of an electron window accross an application lifecycle",
   "repository": "thorstenhans/electron-memento",
   "author": {
