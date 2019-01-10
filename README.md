@@ -4,7 +4,13 @@ For [Electron](https://electronjs.org/) applications you can specify the size an
 
 ## Build Status
 
+### Release build on `master`
+
 [![Build Status](https://dev.azure.com/thns/electron-memento/_apis/build/status/ThorstenHans.electron-memento?branchName=master)](https://dev.azure.com/thns/electron-memento/_build/latest?definitionId=3?branchName=master)
+
+### CI build on `develop`
+
+[![Build Status](https://dev.azure.com/thns/electron-memento/_apis/build/status/electron-memento-ci?branchName=develop)](https://dev.azure.com/thns/electron-memento/_build/latest?definitionId=4?branchName=develop)
 
 ## Support me
 <a href="https://www.patreon.com/bePatron?u=16380186" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
