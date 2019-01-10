@@ -6,6 +6,9 @@ For [Electron](https://electronjs.org/) applications you can specify the size an
 
 [![Build Status](https://dev.azure.com/thns/electron-memento/_apis/build/status/ThorstenHans.electron-memento?branchName=master)](https://dev.azure.com/thns/electron-memento/_build/latest?definitionId=3?branchName=master)
 
+## Support me
+<a href="https://www.patreon.com/bePatron?u=16380186" data-patreon-widget-type="become-patron-button">Become a Patron!</a><script async src="https://c6.patreon.com/becomePatronButton.bundle.js"></script>
+
 ## Install
 ```
 npm install electron-memento --save
@@ -17,9 +20,7 @@ npm install electron-memento --save
 
 ```
 const { app, BrowserWindow } = require('electron');
-const Memento = require('electron-memento'),
-    path = require('path'),
-    url = require('url');
+const Memento = require('electron-memento');
 
 let mainWindow;
 
@@ -30,13 +31,9 @@ function createWindow() {
     height: bounds.height,
     x: bounds.x,
     y: bounds.y,
-    title: 'MyElectronApp'
+    title: 'Memento Sample'
   };
-  const mainWindowUrl = url.format({
-    pathname: path.join(__dirname, 'www', 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  });
+  const mainWindowUrl = 'some-url.html';
 
   mainWindow = new BrowserWindow(mainWindowConfig);
   Memento.infect(mainWindow);
@@ -47,49 +44,35 @@ function createWindow() {
     mainWindow = null;
   });
 }
-
-app.on('ready', createWindow);
-
-app.on('window-all-closed', () => {
-  if(process.platform !== 'darwin') {
-    app.quit();
-  }
-});
-
-app.on('activate', () => {
-  if(mainWindow === null) {
-    createWindow();
-  }
-});
+ // ...
 ```
 
 ## API
 
-### `read(defaultDimension?: { width: number, height: number }, defaultPosition?: { x: number, y: number }): Rectangle`
+### read
 
+`read(defaultDimension?: { width: number, height: number }, defaultPosition?: { x: number, y: number }): Rectangle`
 Will read the dimension and position from the configuration file. If no configuration exists, either *internal defaults* or default values provided by the caller will be returned.
 
 Type: `Rectangle`
 
 #### Internal Defaults
-
 If you don't specify default values, the window will be `centered` and the dimension will be set to `1000x700 pixels`
 
+### writePosition
 
-### `writePosition(mainApplicationWindow: BrowserWindow): void`
-
+`writePosition(mainApplicationWindow: BrowserWindow): void`
 Will store the position of `mainApplicationWindow` (`Electron.BrowserWindow`).
 
-### `writeDimension(mainApplicationWindow: BrowserWindow): void`
+### writeDimension
 
+`writeDimension(mainApplicationWindow: BrowserWindow): void`
 Will store the dimension of `mainApplicationWindow` (`Electron.BrowserWindow`).
 
-### `infect(mainApplicationWindow: BrowserWindow): void`
-
-`Infect` will register `writePosition` and `writeDimension` to the corresponding events of 'mainApplicationWindow' (`move` and `resize`). Once infected, `electron-memento` will always be invoked to store both,
-`dimension` and `position` of `mainApplicationWindow`.
-
-Both `listeners` are unregistered using **explicit** de-registration in `mainApplicationWindow.on('close')`.
+### infect
+`infect(mainApplicationWindow: BrowserWindow): void`
+The `infect` method will register `writePosition` and `writeDimension` to the corresponding events of 'mainApplicationWindow' (`move` and `resize`). Once infected, `electron-memento` will always be invoked to store both,
+`dimension` and `position` of `mainApplicationWindow`. Both `listeners` are unregistered using **explicit** de-registration in `mainApplicationWindow.on('close')`.
 
 ## Credits
 
